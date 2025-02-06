@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairStyle Studio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .haircut-card {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .haircut-card:hover {
+            transform: translateY(-10px);
+        }
+        .hero-section {
+            background: url('https://via.placeholder.com/1920x600') center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        .selected {
+            border: 3px solid #0d6efd !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">HairStyle Studio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Book Now</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-overlay">
+        <h1 class="display-4">Find Your Perfect Haircut</h1>
+        <p class="lead">Book your appointment with our expert stylists</p>
+        <a href="#booking" class="btn btn-primary btn-lg">Book Now</a>
+    </div>
+</div>
+
+<!-- Haircut Gallery -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Popular Haircuts</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <img src="https://media.istockphoto.com/id/1455111571/photo/portrait-of-a-woman-with-a-tattoo.jpg?s=1024x1024&w=is&k=20&c=C1_ou6JkLSfg_ASnnixPSTFvZzSNrm2E94bIfVRbsNQ=" class="card-img-top" alt="Buzz Cut">
+                <div class="card-body">
+                    <h5 class="card-title">Buzz Cut</h5>
+                    <p class="card-text">Classic short cut that's easy to maintain</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <img src="https://media.istockphoto.com/id/157579182/photo/cool-blue-guy.jpg?s=1024x1024&w=is&k=20&c=gqn5vr2OKnl5CIAPWH9hzKGOikLxKatQj3Ru5C9AZnM=" class="card-img-top" alt="Pompadour">
+                <div class="card-body">
+                    <h5 class="card-title">Pompadour</h5>
+                    <p class="card-text">Modern stylish look with volume</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <img src="https://media.istockphoto.com/id/1957838573/photo/smiling-bearded-man-portrait-while-undercut-hairstyle-hairdressing-in-hair-salon-by-young.jpg?s=1024x1024&w=is&k=20&c=3vHryBEoU9j3k8xGlnBRLy2hi8YgY3GN_TlVs_eqBpU=" class="card-img-top" alt="Undercut">
+                <div class="card-body">
+                    <h5 class="card-title">Undercut</h5>
+                    <p class="card-text">Sharp contrast between sides and top</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Booking Form -->
+<div id="booking" class="container my-5">
+    <h2 class="text-center mb-4">Book Your Appointment</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="date" class="form-label">Preferred Date</label>
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time" class="form-label">Preferred Time</label>
+                        <input type="time" class="form-control" id="time" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="haircut" class="form-label">Select Haircut</label>
+                        <select class="form-select" id="haircut" required>
+                            <option value="">Choose a style...</option>
+                            <option>Buzz Cut</option>
+                            <option>Pompadour</option>
+                            <option>Undercut</option>
+                            <option>Fade</option>
+                            <option>Quiff</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="notes" class="form-label">Special Requests</label>
+                        <textarea class="form-control" id="notes" rows="3"></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Book Appointment</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairStyle Studio | Book Your Perfect Cut</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .haircut-card {
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .haircut-card:hover {
+            transform: translateY(-10px);
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(69, 135, 179, 0.329)), url('https://cdn.pixabay.com/photo/2019/12/01/18/04/hairdresser-4666064_1280.jpg') center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .price-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #0d6efd;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .stylist-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-cut"></i> HairStyle Studio</a>
+        <!-- ... (same navigation as before) ... -->
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="text-center text-white">
+        <h1 class="display-4 mb-4">Transform Your Look</h1>
+        <p class="lead mb-4">Professional Stylists | Premium Products | Satisfaction Guaranteed</p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="#booking" class="btn btn-primary btn-lg px-5">Book Now</a>
+            <a href="#services" class="btn btn-outline-light btn-lg px-5">Our Services</a>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card text-center p-4">
+                    <i class="fas fa-male service-icon mb-3"></i>
+                    <h4>Men's Cutting</h4>
+                    <p>Professional haircuts and styling for men</p>
+                    <div class="price">From $30</div>
+                </div>
+            </div>
+            <!-- Add more service cards -->
+        </div>
+    </div>
+</section>
+
+<!-- Haircut Gallery with Prices -->
+<div class="container my-5">
+    <h2 class="text-center mb-4">Popular Styles & Prices</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <div class="price-badge">$35</div>
+                <img src="https://extranet.justcuts.com.au//media/2083/JUSTICEAprilStyleTalkBlog17.29776.jpg" class="card-img-top" alt="Buzz Cut">
+                <div class="card-body">
+                    <h5 class="card-title">Buzz Cut</h5>
+                    <p class="card-text">Classic short cut that's easy to maintain</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-clock me-2"></i>Duration: 30min</li>
+                        <li><i class="fas fa-user me-2"></i>Best for: Round faces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <div class="price-badge">$40</div>
+                <img src="https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img1.jpg" class="card-img-top" alt="Buzz Cut">
+                <div class="card-body">
+                    <h5 class="card-title">Modern Mullet Hair</h5>
+                    <p class="card-text">2024 heralds the continuation of the Modern Mullet's reign, inspired by the revival of the Y2K trend. This versatile style is rapidly gaining popularity and is expected to last.</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-clock me-2"></i>Duration: 25min</li>
+                        <li><i class="fas fa-user me-2"></i>Best for: Round faces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card haircut-card h-100">
+                <div class="price-badge">$35</div>
+                <img src="https://www.gatsbyglobal.com/en/technique/best-haircuts-men-top-mens-hairstyles-today/images/img2.jpg" class="card-img-top" alt="Buzz Cut">
+                <div class="card-body">
+                    <h5 class="card-title">orean Mullet, Semi-Leaf Cut</h5>
+                    <p class="card-text">This is all the rage among trendsetters in NY and Seoul, now sweeping across Asia. This medium-length style features an extended nape, textured layers, and outward curving</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-clock me-2"></i>Duration: 20min</li>
+                        <li><i class="fas fa-user me-2"></i>Best for: all faces</li>
+                    </ul>
+                </div>
+            </div>
+        
+        <!-- Add more haircut cards -->
+    </div>
+</div>
+
+<!-- Stylists Section -->
+
+</section>
+
+<!-- Booking Form Section -->
+
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                        How early should I arrive for my appointment?
+                    </button>
+                </h3>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        We recommend arriving 10-15 minutes before your scheduled appointment time.
+                    </div>
+                </div>
+            </div>
+            <!-- Add more FAQ items -->
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script>
+    // Add card selection functionality
+    document.querySelectorAll('.haircut-card').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('.haircut-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            document.getElementById('haircut').value = card.querySelector('.card-title').innerText;
+        });
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HairStyle Advisor</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            color: white;
+        }
+        
+        .hairstyle-card {
+            transition: transform 0.3s;
+        }
+        
+        .hairstyle-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hairstyle-image {
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .consultation-section {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">HairStyle Advisor</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center">
+    <div class="container text-center">
+        <h1 class="display-4">Find Your Perfect Hairstyle</h1>
+        <p class="lead">Discover the best hairstyles that match your personality and face shape</p>
+        <button class="btn btn-primary btn-lg">Take Style Quiz</button>
+    </div>
+</section>
+
+<!-- Hairstyle Gallery -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Popular Hairstyles</h2>
+        <div class="row g-4">
+            <!-- Hairstyle Cards -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card hairstyle-card">
+                    <img src="https://cdn.pixabay.com/photo/2018/03/22/03/45/colors-3249168_960_720.jpg" 
+                         class="card-img-top hairstyle-image" alt="Long Waves">
+                    <div class="card-body">
+                        <h5 class="card-title">Long Waves</h5>
+                        <p class="card-text">Perfect for oval face shapes, these soft waves add volume and movement.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card hairstyle-card">
+                    <img src="https://cdn.pixabay.com/photo/2024/09/22/07/18/ai-generated-9065297_960_720.jpg" 
+                         class="card-img-top hairstyle-image" alt="Bob Cut">
+                    <div class="card-body">
+                        <h5 class="card-title">Bob Cut</h5>
+                        <p class="card-text">A classic style that works well with square and round face shapes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card hairstyle-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         class="card-img-top hairstyle-image" alt="Braided Updo">
+                    <div class="card-body">
+                        <h5 class="card-title">Braided Updo</h5>
+                        <p class="card-text">Elegant and practical, ideal for special occasions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Consultation Form -->
+<section class="consultation-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Book a Consultation</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="style" class="form-label">Preferred Style</label>
+                        <select class="form-select" id="style">
+                            <option>Long Waves</option>
+                            <option>Bob Cut</option>
+                            <option>Braided Updo</option>
+                            <option>Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Preferred Date</label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p>&copy; 2023 HairStyle Advisor. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Cuts | Professional Hair Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=1920') center/cover;
+            height: 80vh;
+        }
+        .haircut-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .stylist-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-cut"></i> Elite Cuts</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#stylists">Stylists</a></li>
+                <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="privacy.html">Privacy</a></li>
+                <li class="nav-item"><a class="nav-link" href="terms.html">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center">
+    <div class="container text-center text-white">
+        <h1 class="display-4 mb-4">Premium Hair Experiences</h1>
+        <p class="lead mb-4">Book your perfect style with our master stylists</p>
+        <a href="#booking" class="btn btn-primary btn-lg px-5">Book Now</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row g-4">
+            <!-- Service Cards with Actual Images -->
+            <div class="col-md-4">
+                <div class="card haircut-card h-100">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800" 
+                         class="card-img-top" alt="Men's Cut">
+                    <div class="card-body">
+                        <h5>Men's Cutting</h5>
+                        <p>From classic to contemporary styles</p>
+                        <p class="text-primary fw-bold">$40 - $60</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more service cards -->
+        </div>
+    </div>
+</section>
+
+<!-- Stylists Section -->
+<section id="stylists" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Master Stylists</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 text-center">
+                <img src="https://cdn.pixabay.com/photo/2023/08/15/09/21/camera-8191564_960_720.jpg" 
+                     class="stylist-img mb-3" alt="Stylist John">
+                <h4>mirza victor</h4>
+                <p class="text-muted">12+ years experience</p>
+                <img src="https://cdn.pixabay.com/photo/2018/03/01/14/57/portrait-3190849_960_720.jpg" 
+                class="stylist-img mb-3" alt="Stylist John">
+           <h4>waji</h4>
+           <p class="text-muted">15+ years experience</p> <img src="https://cdn.pixabay.com/photo/2017/03/30/18/17/girl-2189247_1280.jpg" 
+           class="stylist-img mb-3" alt="Stylist John">
+      <h4>ayie Michaels</h4>
+      <p class="text-muted">5+ years experience</p>
+            </div>
+
+            <!-- Add more stylists -->
+        </div>
+    </div>
+</section>
+
+<!-- Booking Section -->
+<section id="booking" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Book Appointment</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <!-- Booking form fields -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact & Map Section -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Visit Us</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div id="map"></div>
+            </div>
+            
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <h4>HairStyle Studio</h4>
+                <p>canal road near railway sattion<br>faisalabd punjab, pakistan</p>
+                <p><i class="fas fa-phone me-2"></i>(+92) 3273500036</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Opening Hours</h4>
+                <ul class="list-unstyled">
+                    <li>Mon-Fri: 9am - 8pm</li>
+                    <li>Sat: 10am - 6pm</li>
+                    <li>Sun: Closed</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/invites/contact/?igsh=c581fecnfr55&utm_content=s7d9hnm" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/bookmarks/" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@mirza_king36?_t=ZS-8tf54odZtZQ&_r=1" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4">
+        <p class="text-center mb-0">&copy; 2023 HairStyle Studio. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Google Maps -->
+<script>
+    function initMap() {
+        const location = { lat: 40.712776, lng: -74.005974 }; // NY Coordinates
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location,
+        });
+        new google.maps.Marker({ position: location, map: map });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=https://maps.app.goo.gl/SXNkbuP4acntbm6o8&callback=initMap" async defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
